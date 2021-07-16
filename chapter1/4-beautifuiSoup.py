@@ -10,7 +10,7 @@ def getTitle(url):
 	try:
 		res.raise_for_status()
 	except Exception as exc:
-		print('Возникла проблема: %s' % exc)
+		print('There was a problem: %s' % exc)
 		return None
 	
 	try:
