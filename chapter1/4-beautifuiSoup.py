@@ -3,6 +3,7 @@
 
 import requests, bs4
 
+
 def getSiteHTML(url):
 	res = requests.get(url)
 	
@@ -12,6 +13,7 @@ def getSiteHTML(url):
 	except Exception as exc:
 		print('There was a problem: %s' % exc)
 		return None
+
 
 def getTitle(url):
 	res = getSiteHTML(url)
