@@ -3,14 +3,19 @@
 
 import requests, bs4
 
-
-def getTitle(url):
+def getSiteHTML(url):
 	res = requests.get(url)
 	
 	try:
 		res.raise_for_status()
+		return res
 	except Exception as exc:
 		print('There was a problem: %s' % exc)
+		return None
+
+def getTitle(url):
+	res = getSiteHTML(url)
+	if res is None:
 		return None
 	
 	try:
