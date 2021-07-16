@@ -15,23 +15,23 @@ def getSiteHTML(url):
 		return None
 
 
-def getTitle(url):
+def getAllNames(url):
 	res = getSiteHTML(url)
 	if res is None:
 		return None
 	
 	try:
 		bsObj = bs4.BeautifulSoup(res.text, "html.parser")
-		title = bsObj.body.h1
+		namelist = bsObj.findAll("span", {"class": "green"})
 	except Exception as exc:
 		return None
 	
-	return title
+	return namelist
 
 
-title = getTitle('http://www.pythonscraping.com/pages/page1.html')
-
-if title is None:
-	print('Title could not be found')
+nameList = getAllNames("http://www.pythonscraping.com/pages/warandpeace.html")
+if nameList is None:
+	print("Failed to get the list of names")
 else:
-	print(title)
+	for name in nameList:
+		print(name.get_text() + '\n')
