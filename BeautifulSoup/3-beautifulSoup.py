@@ -12,5 +12,5 @@ except Exception as exc:
 if res is None:
 	print("URL is not found")
 else:
-	bsObj = bs4.BeautifulSoup(res.text)
+	bsObj = bs4.BeautifulSoup(res.text, "lxml")
 	print(bsObj.h1)
