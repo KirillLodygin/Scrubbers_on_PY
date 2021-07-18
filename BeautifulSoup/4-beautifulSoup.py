@@ -21,7 +21,7 @@ def getTitle(url):
 		return None
 	
 	try:
-		bsObj = bs4.BeautifulSoup(res.text, "html.parser")
+		bsObj = bs4.BeautifulSoup(res.text, "html5lib")
 		title = bsObj.body.h1
 	except Exception as exc:
 		return None
